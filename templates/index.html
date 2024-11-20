@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <form action="/" method="post">
+        <input type="text" name="search" placeholder="Buscar Pokémon..." required>
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if pokemon %}
+    <div class="pokemon-card">
+        <h2>{{ pokemon.name }}</h2>
+        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+        <p><strong>Type:</strong> {{ pokemon.types | join(", ") }}</p>
+        <h3>Description</h3>
+        <p>{{ pokemon.description }}</p>
+        <h3>Stats</h3>
+        <ul>
+            {% for stat, value in pokemon.stats.items() %}
+            <li><strong>{{ stat.capitalize() }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+    {% endif %}
+</body>
+</html>
