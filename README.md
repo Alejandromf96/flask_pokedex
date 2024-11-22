@@ -15,6 +15,5 @@ Name
 Image
 Types
 Base Stats (Attack, Defense, Speed, etc.)
-Description (from the Pokédex in Spanish if available)
-
+Description.
 Styled to look like a Pokédex using modern CSS.
